@@ -99,9 +99,13 @@ body
 }
 
 #map-control-group{
-	margin-left: 20%;	
+	margin-left: 0%;	
 }
 
 #camera-footer{
 	height: 8%;
+}
+
+.ui-page {
+    -webkit-backface-visibility: hidden;
 }
