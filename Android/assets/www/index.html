@@ -19,6 +19,8 @@
         <script type="text/javascript" src="javascript/camera-page.js"></script>
         <script type="text/javascript" src="javascript/product-details-page.js"></script>
         <script type="text/javascript" src="javascript/store-locator-page.js"></script>
+        <script type="text/javascript" src="jquery.watermarkinput.js"></script>
+
 
         <script type="text/javascript" charset="utf-8">
             
@@ -36,7 +38,9 @@
             </div><!-- /header -->
             
             <div data-role="content" id="camera-content">   
-                <input type="search" name="search" id="searc-basic" value="Type Product Name Here" />
+                <form id="searchBoxForm" data-ajax="false"> 
+                    <input type="search" name="search" id="searchBox" placeHolder="Type Product Name Here" />
+                </form>
                 <div id="capturedImage-div">
                     <img style="display:none;" id="largeImage" src="" />
                 </div>

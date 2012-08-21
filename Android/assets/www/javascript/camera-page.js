@@ -3,6 +3,11 @@ var destinationType; // sets the format of returned value
 var capturedImageData;
 
 
+$("#searchBoxForm").live("submit", function(){
+    $.mobile.changePage($('#product-details-page'),{ transition: "slide"});
+      // you're logic here
+});
+
 $('#find-btn').live("click", function(evt) {
     // build #woot here and insert into DOM...
     // if ($('#largeImage').attr('src') == "") {
