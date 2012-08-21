@@ -9,9 +9,9 @@ body
 	background-color: white;
 }
 
-#largeImage{
+#capturedImage-div{
 	position: relative;
-	margin-top: -10px;
+	margin-top: 10%;
 	margin-left: -10px;
 }
 
@@ -99,9 +99,13 @@ body
 }
 
 #map-control-group{
-	margin-left: 20%;	
+	margin-left: 0%;	
 }
 
 #camera-footer{
 	height: 8%;
+}
+
+.ui-page {
+    -webkit-backface-visibility: hidden;
 }

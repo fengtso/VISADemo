@@ -32,7 +32,7 @@ var onSuccessToLoadPlaces = function(position) {
       var data = jQuery.parseJSON(data);
       var root_ul = $('#store-list-ul');
       
-      alert(data.results);
+      //alert(data.results);
       
       root_ul.children().remove();
 

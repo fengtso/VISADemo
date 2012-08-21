@@ -5,10 +5,10 @@ var capturedImageData;
 
 $('#find-btn').live("click", function(evt) {
     // build #woot here and insert into DOM...
-    if ($('#largeImage').attr('src') == "") {
-        alert("Please take a picture of the item first.");
-        return;
-    };
+    // if ($('#largeImage').attr('src') == "") {
+    //     alert("Please take a picture of the item first.");
+    //     return;
+    // };
 
     var productImage = document.getElementById('product-image');
     productImage.src = "data:image/jpeg;base64," + capturedImageData;  
@@ -16,8 +16,7 @@ $('#find-btn').live("click", function(evt) {
     $('#largeImage').attr('src', "");
 
     $.mobile.changePage($('#product-details-page'),{ transition: "slide"});
-    //$.mobile.changePage("#product-details-page", "slide", false, true);
-    //evt.preventDefault();
+ 
 });
 
 // Wait for Cordova to connect with the device

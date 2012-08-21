@@ -37,13 +37,13 @@
             
             <div data-role="content" id="camera-content">   
                 <input type="search" name="search" id="searc-basic" value="Type Product Name Here" />
-
-                <img style="display:none;" id="largeImage" src="" />
-                  
+                <div id="capturedImage-div">
+                    <img style="display:none;" id="largeImage" src="" />
+                </div>
             </div>
             
             <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" id="camera-footer">
-                <a href="#" data-transition="slide" class="ui-btn-left"  id="find-btn"  data-icon="search" data-theme="b">Find</a>
+                <a data-transition="slide" class="ui-btn-left"  id="find-btn"  data-icon="search" data-theme="b">Find</a>
                 <a id="shoot-btn" data-theme="b" data-icon="myapp-camera" onclick="capturePhoto()">Camera</a>
                 <a class="ui-btn-right" id="upload-btn" style="float: right" data-icon="gear" data-theme="b" onclick="">Setting</a>
             </div>
@@ -108,7 +108,7 @@
                 <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" style="height:40px;">
                     <div data-role="controlgroup" data-type="horizontal" id="map-control-group">
                         <a data-role="button" data-icon="star" id="allStoresBtn" data-theme="b">All Stores</a>
-                        <a data-role="button" data-icon="forward" id="directionsBtn" data-theme="b">Directions</a>
+                        <!--<a data-role="button" data-icon="forward" id="directionsBtn" data-theme="b">Directions</a>-->
                     </div>
                 </div>
             </div>
