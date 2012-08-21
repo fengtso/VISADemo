@@ -1,0 +1,107 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+#camera-content{
+	background-color: white;
+}
+
+#largeImage{
+	position: relative;
+	margin-top: -10px;
+	margin-left: -10px;
+}
+
+#shoot-btn{
+	margin-top: 3px;
+	margin-left: 120px;
+}
+
+#small-line{
+	line-height: 5px;
+}
+
+#detail-buttons-div{
+	position:relative; 
+	margin-top:85px;
+}
+
+#map_canvas{
+	margin-top: -10px;
+	margin-left: -10px;
+	width:310px; 
+	height:200px;
+}
+
+#store-list-div{
+	margin-top: 20px;
+	width: 300px;
+	height: 300px;
+}
+
+#action-buttons-div{
+	margin-top: 30px;
+}
+
+#product-image{
+	background-color:gray; 
+	margin-left:-5px; 
+	margin-top:-10px; 
+	width:300px; 
+	height:200px;
+}
+
+.store-li{
+	height: 30px;
+}
+
+.ui-icon-myapp-camera {
+	background: url("../jquery.mobile-1.1.1/images/photo_camera.png");
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+}
+
+.ui-header .ui-controlgroup-horizontall {
+	/*display: inline-block;
+  	margin-top: 7px;*/
+
+}
+
+.ui-content .content-div{
+	background-color: white;
+}
+
+.similar-product-img{
+	background-color: red;
+	width: 100%;
+	height: 100%;
+}
+
+.similar-product-img-div{
+	background-color: red;
+	width: 95px;
+	height: 95px;
+	float: left;
+}
+
+.similar-product-list-div{
+	margin-top: 35%;
+	background-color: red;
+}
+
+#found-product-img{
+
+	width: 100px;
+	height: 100px;
+}
+
+#map-control-group{
+	margin-left: 20%;	
+}
+
+#camera-footer{
+	height: 8%;
+}
