@@ -109,3 +109,9 @@ body
 .ui-page {
 /*    -webkit-backface-visibility: hidden;
 */}
+
+#map_details_canvas{
+	float: left;
+	width: 200px;
+	height: 200px;
+}

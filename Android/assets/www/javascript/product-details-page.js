@@ -59,9 +59,8 @@ var onSuccessToLoadPlaces = function(position) {
 
         var storeName = data.results[i].name;
         var a1 = $('<a/>')
-          .addClass('ui-link-inherit list-elm-to-review-page')
+          .addClass('ui-link-inherit list-elm-to-POI')
           .css({'font-size':'16px', 'padding-top':'0px', 'margin-left':'-32px'})
-          .attr('href', '#feedback-review-page')
           .attr('storeName', storeName)
           .text(storeName)
           .appendTo(div2);

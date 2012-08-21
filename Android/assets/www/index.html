@@ -45,7 +45,7 @@
             <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" id="camera-footer">
                 <a data-transition="slide" class="ui-btn-left"  id="find-btn"  data-icon="search" data-theme="b">Find</a>
                 <a id="shoot-btn" data-theme="b" data-icon="myapp-camera" onclick="capturePhoto()">Camera</a>
-                <a class="ui-btn-right" id="upload-btn" style="float: right" data-icon="gear" data-theme="b" onclick="">Setting</a>
+                <a class="ui-btn-right" id="setting-btn" style="float: right" data-icon="gear" data-theme="b" onclick="testPost()">Setting</a>
             </div>
         </div>
 
@@ -113,6 +113,38 @@
                 </div>
             </div>
         </div>
+
+        <div data-role="page" id="store-details-page">
+            
+            <div data-role="header" data-theme="b" data-position="fixed">
+                <h1 id="store-details-header-title">Store Locator</h1>
+                <a href="#store-locator-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Back</a>
+            </div><!-- /header -->
+            
+            <div data-role="content">  
+                <div id="map_details_canvas" style="">
+                    
+                </div>
+
+                <div id="results" style="display:none;">
+                    <!-- the directions will be loaded in the directions div -->
+                    <div id="directions"></div>
+                </div>
+
+                <div id="store-list-div">
+                    <ul data-role="listview" class="ui-listview" id="store-list-ul">
+                       
+                    </ul>
+                </div>
+
+                <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" style="height:40px;">
+                    <div data-role="controlgroup" data-type="horizontal" id="map-control-group">
+                        <!--<a data-role="button" data-icon="forward" id="directionsBtn" data-theme="b">Directions</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
         <div data-role="page" id="similar-product-page">

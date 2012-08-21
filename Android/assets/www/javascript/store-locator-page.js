@@ -4,6 +4,16 @@ var selectedStoreLat;
 var selectedStoreLng;
 
 
+$('.list-elm-to-POI').live("click", function(evt) {
+   
+  alert('store item clicked');
+  
+  $('#store-details-header-title').text($(this).attr('storeName'));
+
+  $.mobile.changePage($('#store-details-page'),{ transition: "slide"});
+
+});
+
 // process the confirmation dialog result
 function onConfirm(button) {
     //alert('You selected button ' + button);

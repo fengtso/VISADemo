@@ -19,6 +19,26 @@ $('#find-btn').live("click", function(evt) {
  
 });
 
+$('#setting-btn').live("click", function(evt) {
+   
+
+    var currLocationLat = 37;
+    var currLocationLng = -122;
+
+    var queryString = "{" + "\"" + "location" + "\"" + ":" + "\"" + currLocationLat + "," + currLocationLng + "\"" + "}";
+    console.log(queryString);
+
+    $.post("http://" + IP + "/api", queryString,
+      function(data) {
+        
+        var data = jQuery.parseJSON(data);
+
+        alert(data.results);
+      }
+    );
+ 
+});
+
 // Wait for Cordova to connect with the device
 //
 document.addEventListener("deviceready",onDeviceReady,false);
