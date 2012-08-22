@@ -58,7 +58,39 @@
             </div>
         </div>
 
-       
+        <div data-role="page" id="product-details-page">
+            <div data-role="header" data-theme="b">
+                <h1>Product Details</h1>
+                <a href="#camera-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse" onclick="showCameraIcon()">Back</a>
+            </div>
+            
+            <div data-role="content">
+                <div id="product-image-div">
+                    <img id="product-image" src=""></img>
+                </div>
+
+                <div id="product-info-div" style="position:relative;">
+                    <div style="float:left;">
+                        <p id="small-line"><b>Capezio Ballet Slipper</b></p>
+                        <p id="small-line">AllSaints Spitalfields</p>
+                        <p id="small-line">Purchased on July 4, 2012</p>
+                    </div>
+                    <div style="float:right;">
+                        <p id="small-line">USD 18.0</p>
+                        <p id="small-line">In Stock</p>
+                    </div>
+                </div>
+                
+                <div id="detail-buttons-div">
+                    <!--<a href="#" data-role="button">View Receipt</a>-->
+                    <a href="#store-locator-page" data-transition="slide" data-role="button" onclick="getNearbyStores()">Contact Store</a>
+                    <a href="#similar-product-page" data-transition="slide" data-role="button" onclick="findSimilarProducts()">Find Similar Products</a>
+                </div>
+                
+                <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" style="height:40px;">   
+                </div> 
+            </div>
+        </div>
         
 
         <div data-role="page" id="store-locator-page">
@@ -92,37 +124,47 @@
                 </div>
             </div>
         </div>
-        <div data-role="page" id="product-details-page">
+
+
+
+        <div data-role="page" id="similar-product-page">
+            
             <div data-role="header" data-theme="b">
-                <h1>Product Details</h1>
-                <a href="#camera-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse" onclick="showCameraIcon()">Back</a>
+                <h1>Similar Products</h1>
+                <a href="#product-details-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Back</a>
+            </div><!-- /header -->
+            
+            <div data-role="content" class="content-div">  
+               <div>
+                    <div style="float:left;">
+                        <img id="found-product-img" src="./images/reference_shoe.png"></img>
+                    </div>
+                    <div style="float:right; width: 60%;">
+                        <p>Showing products similiar to <b>Capezio Kid's Unisex Ballet Slipper</b></p>
+                        
+                    </div>
+                </div>
+                
+                <div id="similar-product-list-div" class="similar-product-list-div">
+                    <div class="similar-product-img-div">
+                        <img class="similar-product-img"></img>
+                    </div>
+                </div> 
+
             </div>
             
-            <div data-role="content">
-                <div id="product-image-div">
-                    <img id="product-image" src=""></img>
-                </div>
-                
-                <div id="product-info-div" style="position:relative;">
-                    <div style="float:left;">
-                        <p id="small-line"><b>Capezio Ballet Slipper</b></p>
-                        <p id="small-line">AllSaints Spitalfields</p>
-                        <p id="small-line">Purchased on July 4, 2012</p>
-                    </div>
-                    <div style="float:right;">
-                        <p id="small-line">USD 18.0</p>
-                        <p id="small-line">In Stock</p>
-                    </div>
-                </div>
-                
-                <div id="detail-buttons-div">
-                    <a href="#" data-role="button">View Receipt</a>
-                    <a href="#store-locator-page" data-transition="slide" data-role="button" onclick="getNearbyStores()">Contact Store</a>
-                    <a href="#similar-product-page" data-transition="slide" data-role="button" onclick="findSimilarProducts()">Find Similar Products</a>
-                </div>
-                
-            </div>
+            <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" style="height:40px;">   
+            </div> 
         </div>
+
+
+
+
+
+
+
+
+
 
         <div data-role="page" id="store-details-page">
             
@@ -161,41 +203,30 @@
             </div>
         </div>
 
-
-
-        <div data-role="page" id="similar-product-page">
-            
+        
+        <div data-role="page" id="info-page">
             <div data-role="header" data-theme="b">
-                <h1>Similar Products</h1>
-                <a href="#product-details-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Back</a>
+                <h1>Info</h1>
+                <a href="#camera-page" data-icon="arrow-l" class="ui-btn-left" data-transition="flip" data-direction="reverse" onclick="">Back</a>
             </div><!-- /header -->
             
-            <div data-role="content" class="content-div">  
-                <div>
-                    <div style="float:left;">
-                        <img id="found-product-img" src="./images/reference_shoe.png"></img>
-                    </div>
-                    <div style="float:right; width: 60%;">
-                        <p>Showing products similiar to <b>Capezio Kid's Unisex Ballet Slipper</b></p>
-                        
-                    </div>
-                </div>
-                <div id="similar-product-list-div" class="similar-product-list-div">
-                    <div class="similar-product-img-div">
-                        <img class="similar-product-img"></img>
-                    </div>
-                   
-                   
-                </div>
-
+            <div data-role="content">
+                <h4>INSTRUCTIONS</h4>
+                <p>This app demonstrates several capabilities of HTML5 based PhoneGap framework(e.g., geo-location, on-device camera access, and image uploading).</p>
+                <p>To use this demo app:</p>
+                <ul>
+                    <li>Install supported browsers: 
+                        <p><b>Opera Mobile</b> for Android Devices or <b>Chrome/Opera</b> for Windows/Mac machines.</p>
+                    </li>
+                    <li>Enable MediaStream API if you are using Chrome: 
+                        <p>1. Type <b>about:flags</b> in the URL bar</p>
+                        <p>2. Enable <b>MediaStream</b> (at the bottom) and relaunch Chrome</p>
+                    </li>
+                </ul>
+                
+                
             </div>
-
-            <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" style="height:40px;">
-                    
-            </div>
-
         </div>
         
-        
     </body>
-</html>
+  </html>

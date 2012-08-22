@@ -95,13 +95,6 @@ function onError(error) {
 }
 
 function findSimilarProducts(){
-  currLocationLat = 37;
-  currLocationLng = -122;
-  
-  var testImageLink = "http://upload.wikimedia.org/wi9kipedia/commons/8/88/Ward_Cunningham_-_Commons-1.jpg";
-  var testImageLink = "jquery.mobile-1.1.1/images/photo_camera.png";
-  var queryString = "{" + "\"" + "image" + "\"" + ":" +  "\"" + "" + "\"" + "}";
-
 
   var root_div = $('#similar-product-list-div');
   root_div.children().remove();
@@ -121,27 +114,4 @@ function findSimilarProducts(){
     //alert("./images/ballet_shoe" + i.toString() + ".png");
   }
   
-
-  // $.post("http://" + IP + "/api", queryString,
-  //     function(data) {
-  //       var root_div = $('#similar-product-list-div');
-  //       root_div.children().remove();
-
-  //       var data = jQuery.parseJSON(data);
-  //       alert(data.image_links);
-
-  //       $.each(data.image_links, function(i)
-  //       {
-  //          var img = $('<img/>')
-  //          .addClass('similar-product-img')
-  //          //.attr('src', data.image_links[i])
-  //          .attr('src', testImageLink)
-  //          .appendTo(root_div);
-           
-  //          //.appendTo(root_div);
-
-  //          alert(data.image_links[i]);
-  //       });
-
-  // });
 }

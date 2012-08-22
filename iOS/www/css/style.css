@@ -2,7 +2,7 @@ body
 {
 	margin: 0;
 	padding: 0;
-	background-color: white;
+	background-color: black;
 }
 
 #camera-content #camera-page{
@@ -107,8 +107,13 @@ body
 }
 
 .ui-page {
-/*    -webkit-backface-visibility: hidden;
-*/}
+    -webkit-backface-visibility: hidden;
+}
+
+.ui-mobile-viewport-transitioning,
+.ui-mobile-viewport-transitioning .ui-page {
+    overflow: visible;
+}
 
 #map_details_canvas{
 	margin-top: -10px;
