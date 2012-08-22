@@ -111,7 +111,8 @@ body
 */}
 
 #map_details_canvas{
-	float: left;
-	width: 200px;
+	margin-top: -10px;
+	margin-left: -10px;
+	width: 310px;
 	height: 200px;
 }

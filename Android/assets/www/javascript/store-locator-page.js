@@ -6,10 +6,19 @@ var selectedStoreLng;
 
 $('.list-elm-to-POI').live("click", function(evt) {
    
-  alert('store item clicked');
-  
+  //alert('store item clicked' + $(this).attr('lat'));
+
   $('#store-details-header-title').text($(this).attr('storeName'));
 
+  
+  $('#map_details_canvas').gmap('addMarker', { 
+        'position': new google.maps.LatLng($(this).attr('lat'), $(this).attr('lng')), 
+        'bounds': true 
+    }).click(function() {
+      $('#map_canvas').gmap({ 'center': new google.maps.LatLng($(this).attr('lat'),$(this).attr('lng'))});
+  });
+
+  $('#store-address-p').text($(this).attr('storeAddress'));
   $.mobile.changePage($('#store-details-page'),{ transition: "slide"});
 
 });
