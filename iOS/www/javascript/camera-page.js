@@ -3,12 +3,21 @@ var destinationType; // sets the format of returned value
 var capturedImageData;
 
 
+$("#searchBoxForm").live("submit", function(){
+    $.mobile.changePage($('#product-details-page'),{ transition: "slide"});
+      // you're logic here
+});
+
+$('#cameraIcon-div').live("click", function(evt){
+    capturePhoto();
+});
+
 $('#find-btn').live("click", function(evt) {
     // build #woot here and insert into DOM...
-    if ($('#largeImage').attr('src') == "") {
-        alert("Please take a picture of the item first.");
-        return;
-    };
+    // if ($('#largeImage').attr('src') == "") {
+    //     alert("Please take a picture of the item first.");
+    //     return;
+    // };
 
     var productImage = document.getElementById('product-image');
     productImage.src = "data:image/jpeg;base64," + capturedImageData;  
@@ -16,8 +25,27 @@ $('#find-btn').live("click", function(evt) {
     $('#largeImage').attr('src', "");
 
     $.mobile.changePage($('#product-details-page'),{ transition: "slide"});
-    //$.mobile.changePage("#product-details-page", "slide", false, true);
-    //evt.preventDefault();
+ 
+});
+
+$('#setting-btn').live("click", function(evt) {
+   
+
+    var currLocationLat = 37;
+    var currLocationLng = -122;
+
+    var queryString = "{" + "\"" + "location" + "\"" + ":" + "\"" + currLocationLat + "," + currLocationLng + "\"" + "}";
+    console.log(queryString);
+
+    $.post("http://" + IP + "/api", queryString,
+      function(data) {
+        
+        var data = jQuery.parseJSON(data);
+
+        alert(data.results);
+      }
+    );
+ 
 });
 
 // Wait for Cordova to connect with the device
@@ -34,6 +62,7 @@ function onDeviceReady() {
 // Called when a photo is successfully retrieved
 //
 function onPhotoDataSuccess(imageData) {
+    $("#cameraIcon-div").hide();
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
     capturedImageData = imageData;

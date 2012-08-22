@@ -1,6 +1,11 @@
 var currLocationLat;
 var currLocationLng;
+<<<<<<< HEAD
+var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
+=======
+// var IP = "10.0.11.129:8888";
 var IP = "10.0.11.129:8888";
+>>>>>>> e7913a3d9518114f4692d56e39d48e54c3b79119
 
 function getNearbyStores(){
   // submit current location 
@@ -39,10 +44,12 @@ var onSuccessToLoadPlaces = function(position) {
      $.each(data.results, function(i)
       {
         var li = $('<li/>')
-          .addClass('ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c ui-li-static ui-body-d ui-btn-up-d store-list-li')
+          .addClass('ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c ui-li-static ui-body-d ui-btn-up-d store-list-li list-elm-to-POI')
           .attr('data-theme', 'd')
           .attr('lat', data.results[i].geometry.location.lat)
           .attr('lng', data.results[i].geometry.location.lng)
+          .attr('storeName', data.results[i].name)
+          .attr('storeAddress', data.results[i].vicinity)
           .attr('description', 'closed to ' + data.results[i].vicinity)
           .appendTo(root_ul);
 
@@ -59,9 +66,8 @@ var onSuccessToLoadPlaces = function(position) {
 
         var storeName = data.results[i].name;
         var a1 = $('<a/>')
-          .addClass('ui-link-inherit list-elm-to-review-page')
+          .addClass('ui-link-inherit')
           .css({'font-size':'16px', 'padding-top':'0px', 'margin-left':'-32px'})
-          .attr('href', '#feedback-review-page')
           .attr('storeName', storeName)
           .text(storeName)
           .appendTo(div2);

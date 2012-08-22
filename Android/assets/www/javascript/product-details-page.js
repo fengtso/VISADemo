@@ -1,11 +1,8 @@
 var currLocationLat;
 var currLocationLng;
-<<<<<<< HEAD
-var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
-=======
+//var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
 // var IP = "10.0.11.129:8888";
 var IP = "10.0.11.129:8888";
->>>>>>> e7913a3d9518114f4692d56e39d48e54c3b79119
 
 function getNearbyStores(){
   // submit current location 
