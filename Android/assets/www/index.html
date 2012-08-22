@@ -39,8 +39,11 @@
             
             <div data-role="content" id="camera-content">   
                 <form id="searchBoxForm" data-ajax="false"> 
-                    <input type="search" name="search" id="searchBox" placeHolder="Type Product Name Here" />
+                    <input type="search" name="search" id="searchBox" placeHolder="Type product name here..." />
                 </form>
+                <div id="cameraIcon-div">
+                    <img id="cameraIcon-img" src="./images/camera-icon.png" />
+                </div>
                 <div id="capturedImage-div">
                     <img style="display:none;" id="largeImage" src="" />
                 </div>
@@ -56,7 +59,7 @@
         <div data-role="page" id="product-details-page">
             <div data-role="header" data-theme="b">
                 <h1>Product Details</h1>
-                <a href="#camera-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Back</a>
+                <a href="#camera-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse" onclick="showCameraIcon()">Back</a>
             </div>
             
             <div data-role="content">
@@ -121,7 +124,7 @@
         <div data-role="page" id="store-details-page">
             
             <div data-role="header" data-theme="b" data-position="fixed">
-                <h1 id="store-details-header-title">Store Locator</h1>
+                <h1 id="store-details-header-title">Store Details</h1>
                 <a href="#store-locator-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Back</a>
             </div><!-- /header -->
             
@@ -136,14 +139,16 @@
                 </div>
 
                 <div>
-                    <p style="float:left;">Address:<b id="store-address-p"></b></p>
+                    <p><b id="storeName-p"></b></p>
+                    <p id="store-address-p"></p>
                 </div>
 
-                <p><b>Nearby POI:</b></p>
+                <div>
                 <a href="" data-role="button">Coffee & Tea</a>
                 <a href="" data-role="button">Restaurants</a>
                 <a href="" data-role="button">Attractions</a>
                 <a href="" data-role="button">More...</a>
+                <div>
 
                 <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" style="height:40px;">
                     <div data-role="controlgroup" data-type="horizontal" id="map-control-group">
