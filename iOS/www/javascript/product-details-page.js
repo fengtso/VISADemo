@@ -1,11 +1,8 @@
 var currLocationLat;
 var currLocationLng;
-<<<<<<< HEAD
-var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
-=======
+//var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
 // var IP = "10.0.11.129:8888";
 var IP = "10.0.11.129:8888";
->>>>>>> e7913a3d9518114f4692d56e39d48e54c3b79119
 
 function getNearbyStores(){
   // submit current location 
@@ -31,6 +28,14 @@ var onSuccessToLoadPlaces = function(position) {
     var queryString = "{" + "\"" + "location" + "\"" + ":" + "\"" + currLocationLat + "," + currLocationLng + "\"" + "}";
     console.log(queryString);
 
+    // add current location
+    $('#map_canvas').gmap('addMarker', { 
+                          'position': new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
+                          'bounds': true 
+                          }).click(function() {
+                                   $('#map_canvas').gmap('openInfoWindow', { 'content': 'Current Location' }, this);
+    });
+    
     $.post("http://" + IP + "/api", queryString,
       function(data) {
 
@@ -81,13 +86,7 @@ var onSuccessToLoadPlaces = function(position) {
 
     });
 
-    // add current location
-    $('#map_canvas').gmap('addMarker', { 
-          'position': new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
-          'bounds': true 
-      }).click(function() {
-          $('#map_canvas').gmap('openInfoWindow', { 'content': 'Current Location' }, this);
-    });
+    
 };
 
 // onError Callback receives a PositionError object
