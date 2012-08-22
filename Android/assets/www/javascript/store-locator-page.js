@@ -8,7 +8,7 @@ $('.list-elm-to-POI').live("click", function(evt) {
    
   //alert('store item clicked' + $(this).attr('lat'));
 
-  $('#store-details-header-title').text($(this).attr('storeName'));
+  // $('#store-details-header-title').text($(this).attr('storeName'));
 
   
   $('#map_details_canvas').gmap('addMarker', { 
@@ -18,10 +18,15 @@ $('.list-elm-to-POI').live("click", function(evt) {
       $('#map_canvas').gmap({ 'center': new google.maps.LatLng($(this).attr('lat'),$(this).attr('lng'))});
   });
 
+  $('#storeName-p').text($(this).attr('storeName'));
   $('#store-address-p').text($(this).attr('storeAddress'));
   $.mobile.changePage($('#store-details-page'),{ transition: "slide"});
 
 });
+
+function showCameraIcon() {
+  $("#cameraIcon-div").show();
+}
 
 // process the confirmation dialog result
 function onConfirm(button) {

@@ -1,5 +1,6 @@
 var currLocationLat;
 var currLocationLng;
+// var IP = "10.0.11.129:8888";
 var IP = "10.0.11.129:8888";
 
 function getNearbyStores(){

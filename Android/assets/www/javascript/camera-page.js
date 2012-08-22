@@ -8,6 +8,10 @@ $("#searchBoxForm").live("submit", function(){
       // you're logic here
 });
 
+$('#cameraIcon-div').live("click", function(evt){
+    capturePhoto();
+});
+
 $('#find-btn').live("click", function(evt) {
     // build #woot here and insert into DOM...
     // if ($('#largeImage').attr('src') == "") {
@@ -58,6 +62,7 @@ function onDeviceReady() {
 // Called when a photo is successfully retrieved
 //
 function onPhotoDataSuccess(imageData) {
+    $("#cameraIcon-div").hide();
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
     capturedImageData = imageData;
