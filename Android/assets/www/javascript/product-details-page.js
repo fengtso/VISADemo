@@ -1,6 +1,6 @@
 var currLocationLat;
 var currLocationLng;
-var IP = "10.0.11.129:8888";
+var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
 
 function getNearbyStores(){
   // submit current location 
@@ -32,7 +32,7 @@ var onSuccessToLoadPlaces = function(position) {
       var data = jQuery.parseJSON(data);
       var root_ul = $('#store-list-ul');
       
-      //alert(data.results);
+      alert(data.results);
       
       root_ul.children().remove();
 
