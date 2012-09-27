@@ -3,29 +3,24 @@
     <head>
         <title>Shopping Assistant</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <script src="javascript/jquery-1.7.min.js"></script>
-        <script src="jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.js"></script>
+        <link rel="stylesheet" href="./jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="./javascript/jquery-1.7.min.js"></script>
+        <script src="./jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.js"></script>
         
         <script type="text/javascript" charset="utf-8" src="javascript/cordova-2.0.0.js"></script>
-       
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
         <!--
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         -->
-        <script type="text/javascript" src="jquery-ui-map-3/ui/jquery.ui.map.js"></script>
+        <script type="text/javascript" src="./jquery-ui-map-3/ui/jquery.ui.map.js"></script>
         
         <script type="text/javascript" src="javascript/camera-page.js"></script>
         <script type="text/javascript" src="javascript/product-details-page.js"></script>
         <script type="text/javascript" src="javascript/store-locator-page.js"></script>
+        <script type="text/javascript" src="javascript/similar-product-page.js"></script>
         <script type="text/javascript" src="jquery.watermarkinput.js"></script>
 
-
-        <script type="text/javascript" charset="utf-8">
-            
-           
-        </script>
     </head>
     <body style="background-color:#ababab;">
         
@@ -82,7 +77,7 @@
                 <div id="detail-buttons-div">
                     <!--<a href="#" data-role="button">View Receipt</a>-->
                     <a href="#store-locator-page" data-transition="slide" data-role="button" onclick="getNearbyStores()">Contact Store</a>
-                    <a href="#similar-product-page" data-transition="slide" data-role="button" onclick="findSimilarProducts()">Find Similar Products</a>
+                    <a href="#similar-product-page" data-transition="slide" data-role="button" onclick="loadSimilarProductPhotos()">Find Similar Products</a>
                 </div>
 
                 <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo" data-position="fixed" data-theme="b" style="height:40px;">   
@@ -124,13 +119,13 @@
         </div>
 
 
-
+<!--
         <div data-role="page" id="similar-product-page">
             
             <div data-role="header" data-theme="b">
                 <h1>Similar Products</h1>
                 <a href="#product-details-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Back</a>
-            </div><!-- /header -->
+            </div>
             
             <div data-role="content" class="content-div">  
                <div>
@@ -155,8 +150,49 @@
             </div> 
         </div>
 
+-->
+        <div data-role="page" id="similar-product-page">
 
+            <div data-role="header" data-theme="b">
+                <h1>Similar Products</h1>
+                <a href="#product-details-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse" onclick="clearPhotoList();">Back</a>
+            </div>
 
+            <div data-role="content">  
+                <ul data-role="listview" id="photo-list" class="ui-listview"> 
+                </ul>
+            </div>
+        </div> -->
+
+        <div data-role="page" id="single-photo-page">
+            <div data-role="header" data-theme="b">
+                <h1>Selected Product</h1>
+                <a href="#similar-product-page" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Back</a>
+                <a href="#deletePhoto-dialog" data-icon="delete" class="ui-btn-right" data-rel="dialog">Delete</a>
+            </div>
+            <div data-role="content" data-theme="b">
+                <img id="single-photo-img" style="width:100%;" src=""></img>
+            </div>
+        </div>
+
+        <div data-role="page" id="deletePhoto-dialog" class="ui-dialog-contain ui-corner-all ui-overlay-shadow">
+
+          <div data-role="content" class="ui-corner-bottom ui-content ui-body-c" style="margin-top:50%;">
+            <!--<h3 style="text-align: center;">Delete Photo</h3>
+            <p style="text-align: center;">Are you sure you want to delete this photo?</p>-->
+            <!--<p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>-->
+            <a href="#gallery-page" data-role="button" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b" onclick="deletePhoto();">
+              <span class="ui-btn-inner ui-btn-corner-all">
+                <span class="ui-btn-text">Delete Photo</span>
+              </span>
+            </a>       
+            <a href="#single-photo-page" data-role="button" data-rel="back" data-theme="c" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all">
+              <span class="ui-btn-inner ui-btn-corner-all">
+                <span class="ui-btn-text">Cancel</span>
+              </span>
+            </a>
+          </div>
+        </div>
 
 
 

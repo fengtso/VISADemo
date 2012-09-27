@@ -2,13 +2,60 @@ var currLocationLat;
 var currLocationLng;
 //var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
 // var IP = "10.0.11.129:8888";
-var IP = "10.0.11.129:8888";
+var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
 
 function getNearbyStores(){
   // submit current location 
-  navigator.geolocation.getCurrentPosition(onSuccessToLoadPlaces, onError);
+        
+   
+    
+    navigator.geolocation.getCurrentPosition(onSuccessToLoadPlaces, onError);
   
   // add store list
+        
+    var root_ul = $('#store-list-ul');
+    
+    root_ul.children().remove();
+    
+    for(var i =0; i < 5; i++)
+    {
+        console.log("hihi");
+        var li = $('<li/>')
+        .addClass('ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c ui-li-static ui-body-d ui-btn-up-d store-list-li list-elm-to-POI')
+        .attr('data-theme', 'd')
+        .attr('lat', "37")
+        .attr('lng', "-122")
+        .attr('storeName', "Store Name")
+        .attr('storeAddress', "Address Comes Here")
+        .attr('description', 'closed to ' + "Address Comes Here")
+        .appendTo(root_ul);
+        
+        var div1 = $('<div/>')
+        .addClass('ui-btn-inner ui-li ui-li-static ui-body-d')
+        .css('width', '260px')
+        .attr('aria-hidden', 'true')
+        .appendTo(li);
+        
+        var div2 = $('<div/>')
+        .addClass('ui-btn-text')
+        .css('height', '15px')
+        .appendTo(div1);
+        
+        var storeName = "StoreName" + i;
+        var a1 = $('<a/>')
+        .addClass('ui-link-inherit')
+        .css({'font-size':'16px', 'padding-top':'0px', 'margin-left':'-32px'})
+        .attr('storeName', storeName)
+        .text(storeName)
+        .appendTo(div2);
+        
+        var span1 = $('<span/>')
+        .addClass('ui-icon ui-icon-arrow-r ui-icon-shadow')
+        .css({'height':'20px', 'width':'20px', 'margin-top':'-8px'})
+        .appendTo(div1);
+        
+    };
+
 }
 
 var onSuccessToLoadPlaces = function(position) {
@@ -36,6 +83,7 @@ var onSuccessToLoadPlaces = function(position) {
                                    $('#map_canvas').gmap('openInfoWindow', { 'content': 'Current Location' }, this);
     });
     
+    
     $.post("http://" + IP + "/api", queryString,
       function(data) {
 
@@ -46,6 +94,7 @@ var onSuccessToLoadPlaces = function(position) {
       
       root_ul.children().remove();
 
+           
      $.each(data.results, function(i)
       {
         var li = $('<li/>')
