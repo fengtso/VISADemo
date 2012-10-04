@@ -1,19 +1,14 @@
 var currLocationLat;
 var currLocationLng;
-//var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
-// var IP = "10.0.11.129:8888";
 var IP = "ec2-23-20-185-148.compute-1.amazonaws.com:8888";
 
 function getNearbyStores(){
   // submit current location 
-        
-   
-    
-    navigator.geolocation.getCurrentPosition(onSuccessToLoadPlaces, onError);
-  
+  navigator.geolocation.getCurrentPosition(onSuccessToLoadPlaces, onError);
+
   // add store list
-        
-    var root_ul = $('#store-list-ul');
+
+  var root_ul = $('#store-list-ul');
     
     root_ul.children().remove();
     
@@ -54,19 +49,18 @@ function getNearbyStores(){
         .css({'height':'20px', 'width':'20px', 'margin-top':'-8px'})
         .appendTo(div1);
         
-    };
-
-}
+    }
+};
 
 var onSuccessToLoadPlaces = function(position) {
-    // alert('Latitude: '          + position.coords.latitude          + '\n' +
-    //       'Longitude: '         + position.coords.longitude         + '\n' +
-    //       'Altitude: '          + position.coords.altitude          + '\n' +
-    //       'Accuracy: '          + position.coords.accuracy          + '\n' +
-    //       'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-    //       'Heading: '           + position.coords.heading           + '\n' +
-    //       'Speed: '             + position.coords.speed             + '\n' +
-    //       'Timestamp: '         + new Date(position.timestamp)      + '\n');
+  //  alert('Latitude: '          + position.coords.latitude          + '\n' +
+  //         'Longitude: '         + position.coords.longitude         + '\n' +
+  //         'Altitude: '          + position.coords.altitude          + '\n' +
+  //         'Accuracy: '          + position.coords.accuracy          + '\n' +
+  //         'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+  //         'Heading: '           + position.coords.heading           + '\n' +
+  //         'Speed: '             + position.coords.speed             + '\n' +
+  //         'Timestamp: '         + new Date(position.timestamp)      + '\n');
 
     currLocationLat = position.coords.latitude;
     currLocationLng = position.coords.longitude;
@@ -75,26 +69,17 @@ var onSuccessToLoadPlaces = function(position) {
     var queryString = "{" + "\"" + "location" + "\"" + ":" + "\"" + currLocationLat + "," + currLocationLng + "\"" + "}";
     console.log(queryString);
 
-    // add current location
-    $('#map_canvas').gmap('addMarker', { 
-                          'position': new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
-                          'bounds': true 
-                          }).click(function() {
-                                   $('#map_canvas').gmap('openInfoWindow', { 'content': 'Current Location' }, this);
-    });
-    
-    
     $.post("http://" + IP + "/api", queryString,
       function(data) {
 
       var data = jQuery.parseJSON(data);
       var root_ul = $('#store-list-ul');
       
+      alert("http://" + IP + "/api" + queryString);
       alert(data.results);
       
       root_ul.children().remove();
 
-           
      $.each(data.results, function(i)
       {
         var li = $('<li/>')
@@ -135,7 +120,14 @@ var onSuccessToLoadPlaces = function(position) {
 
     });
 
-    
+    //add current location
+    $('#map_canvas').gmap('addMarker', { 
+          'position': new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
+          'bounds': true 
+      }).click(function() {
+          $('#map_canvas').gmap('openInfoWindow', { 'content': 'Current Location' }, this);
+    });
+
 };
 
 // onError Callback receives a PositionError object
@@ -146,13 +138,6 @@ function onError(error) {
 }
 
 function findSimilarProducts(){
-  currLocationLat = 37;
-  currLocationLng = -122;
-  
-  var testImageLink = "http://upload.wikimedia.org/wi9kipedia/commons/8/88/Ward_Cunningham_-_Commons-1.jpg";
-  var testImageLink = "jquery.mobile-1.1.1/images/photo_camera.png";
-  var queryString = "{" + "\"" + "image" + "\"" + ":" +  "\"" + "" + "\"" + "}";
-
 
   var root_div = $('#similar-product-list-div');
   root_div.children().remove();
@@ -172,27 +157,7 @@ function findSimilarProducts(){
     //alert("./images/ballet_shoe" + i.toString() + ".png");
   }
   
-
-  // $.post("http://" + IP + "/api", queryString,
-  //     function(data) {
-  //       var root_div = $('#similar-product-list-div');
-  //       root_div.children().remove();
-
-  //       var data = jQuery.parseJSON(data);
-  //       alert(data.image_links);
-
-  //       $.each(data.image_links, function(i)
-  //       {
-  //          var img = $('<img/>')
-  //          .addClass('similar-product-img')
-  //          //.attr('src', data.image_links[i])
-  //          .attr('src', testImageLink)
-  //          .appendTo(root_div);
-           
-  //          //.appendTo(root_div);
-
-  //          alert(data.image_links[i]);
-  //       });
-
-  // });
 }
+
+
+
